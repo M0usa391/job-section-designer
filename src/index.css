@@ -44,6 +44,38 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  .light-mode {
+    --background: 210 40% 98%;
+    --foreground: 225 60% 8%;
+
+    --card: 210 40% 98%;
+    --card-foreground: 225 50% 12%;
+
+    --popover: 210 40% 98%;
+    --popover-foreground: 225 45% 10%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 195 80% 50%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 40% 90%;
+    --muted-foreground: 225 40% 20%;
+
+    --accent: 210 40% 90%;
+    --accent-foreground: 225 40% 25%;
+
+    --border: 225 30% 90%;
+    --input: 225 30% 90%;
+    --ring: 210 100% 50%;
+  }
+
+  .dark-mode {
+    --background: 225 60% 8%;
+    --foreground: 210 40% 98%;
+  }
 }
 
 @layer base {
@@ -110,4 +142,111 @@
   background: rgb(127, 127, 213);
   background: linear-gradient(90deg, rgba(127, 127, 213, 1) 0%, rgba(78, 205, 230, 1) 100%);
   transition: width 0.5s ease-in-out;
+}
+
+/* Day mode styles */
+.bg-day-sky {
+  background: linear-gradient(to bottom, #87CEEB, #E0F7FA);
+}
+
+.light-mode .glass-card {
+  @apply backdrop-blur-sm bg-white/40 border border-white/30 shadow-md;
+}
+
+.light-mode .text-white {
+  @apply text-islamicBlue;
+}
+
+/* نهارية */
+.light-mode .text-islamicCyan {
+  @apply text-islamicBlue-50;
+}
+
+/* تنسيق الرسوم المتحركة للنجوم المتساقطة */
+@keyframes shooting-star {
+  0% {
+    transform: translateX(0) translateY(0) rotate(-45deg);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-500px) translateY(500px) rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+.animate-shooting-star {
+  animation: shooting-star 5s ease-out infinite;
+}
+
+/* تنسيق وميض النجوم */
+@keyframes pulse-light {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-light {
+  animation: pulse-light 3s ease-in-out infinite;
+}
+
+/* تنسيقات ظهور العناصر بتأثيرات مختلفة */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
 }

@@ -71,6 +71,9 @@ export default {
         },
         islamicCyan: '#4ECDE6',
         islamicPurple: '#7F7FD5',
+        islamicGold: '#FFC940',
+        islamicGreen: '#00A86B',
+        islamicPink: '#FF6B91',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -119,6 +122,7 @@ export default {
       },
       backgroundImage: {
         'night-sky': 'radial-gradient(ellipse at top, #0c1445 0%, #06071b 100%)',
+        'day-sky': 'linear-gradient(to bottom, #87CEEB, #E0F7FA)',
         'prayer-card': 'linear-gradient(145deg, rgba(20, 30, 70, 0.5) 0%, rgba(20, 30, 70, 0.2) 100%)',
         'progress-bar': 'linear-gradient(90deg, #7F7FD5 0%, #4ECDE6 100%)'
       }
