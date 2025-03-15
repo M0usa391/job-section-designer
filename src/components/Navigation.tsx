@@ -1,45 +1,40 @@
 
-import { 
-  Settings, 
-  Calendar, 
-  BookOpen, 
-  Home,
-} from "lucide-react";
-
 const Navigation = () => {
   return (
-    <div className="fixed bottom-0 w-full bg-gradient-to-t from-islamicBlue-900 to-transparent pt-6 pb-8 animate-fade-up delay-300">
-      <div className="flex justify-around items-center px-6 gap-2">
-        <NavItem icon={<Settings className="w-6 h-6" />} label="الإعدادات" />
-        <NavItem icon={<Calendar className="w-6 h-6" />} label="المناسبات" />
-        <NavItem icon={<Home className="w-6 h-6" />} label="الأذكار" active />
-        <NavItem icon={<BookOpen className="w-6 h-6" />} label="القرآن" />
-        <NavItem icon={<Home className="w-6 h-6" />} label="القبلة" />
+    <div className="fixed-bottom pb-4 pt-5 animate__animated animate__fadeInUp animate__delay-3s">
+      <div className="container">
+        <div className="row justify-content-around gx-0">
+          <NavItem icon="bi-gear" label="الإعدادات" />
+          <NavItem icon="bi-calendar-event" label="المناسبات" />
+          <NavItem icon="bi-house" label="الأذكار" active />
+          <NavItem icon="bi-book" label="القرآن" />
+          <NavItem icon="bi-compass" label="القبلة" />
+        </div>
       </div>
     </div>
   );
 };
 
 interface NavItemProps {
-  icon: React.ReactNode;
+  icon: string;
   label: string;
   active?: boolean;
 }
 
 const NavItem = ({ icon, label, active = false }: NavItemProps) => {
   return (
-    <button className="flex flex-col items-center justify-center">
-      <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-1 ${
-        active ? "bg-islamicCyan/20" : "glass-card"
-      }`}>
-        <div className={`${active ? "text-islamicCyan" : "text-white/70"}`}>
-          {icon}
+    <div className="col text-center">
+      <button className="btn border-0 d-flex flex-column align-items-center">
+        <div className={`rounded-circle d-flex align-items-center justify-content-center mb-1 p-2 ${
+          active ? "bg-info bg-opacity-25" : "btn-glass"
+        }`} style={{width: '40px', height: '40px'}}>
+          <i className={`bi ${icon} ${active ? "text-info" : "text-white-50"} fs-5`}></i>
         </div>
-      </div>
-      <span className={`text-xs ${active ? "text-islamicCyan" : "text-white/70"} font-medium`}>
-        {label}
-      </span>
-    </button>
+        <span className={`small ${active ? "text-info" : "text-white-50"} fw-medium`}>
+          {label}
+        </span>
+      </button>
+    </div>
   );
 };
 

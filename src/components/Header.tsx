@@ -1,5 +1,4 @@
 
-import { Share2, HelpCircle, Sun, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const Header = () => {
@@ -20,29 +19,33 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full px-6 py-4 flex justify-between items-center animate-fade-in">
-      <button className="w-10 h-10 rounded-full flex items-center justify-center glass-card">
-        <HelpCircle className="w-5 h-5 text-white/80" />
-      </button>
-      
-      <div className="flex flex-col items-center">
-        <h1 className="text-xl font-semibold text-white mb-1 text-shadow">سبها</h1>
-      </div>
-      
-      <div className="flex items-center gap-2">
-        <button 
-          className="w-10 h-10 rounded-full flex items-center justify-center glass-card"
-          onClick={toggleDarkMode}
-        >
-          {isDarkMode ? (
-            <Sun className="w-5 h-5 text-white/80" />
-          ) : (
-            <Moon className="w-5 h-5 text-white/80" />
-          )}
-        </button>
-        <button className="w-10 h-10 rounded-full flex items-center justify-center glass-card">
-          <Share2 className="w-5 h-5 text-white/80" />
-        </button>
+    <header className="container-fluid py-3 animate__animated animate__fadeIn">
+      <div className="row align-items-center">
+        <div className="col-4">
+          <button className="btn btn-glass rounded-circle p-2">
+            <i className="bi bi-question-circle text-white-50 fs-5"></i>
+          </button>
+        </div>
+        
+        <div className="col-4 text-center">
+          <h1 className="fs-4 fw-bold text-white mb-0 text-shadow">سبها</h1>
+        </div>
+        
+        <div className="col-4 d-flex justify-content-end gap-2">
+          <button 
+            className="btn btn-glass rounded-circle p-2"
+            onClick={toggleDarkMode}
+          >
+            {isDarkMode ? (
+              <i className="bi bi-sun text-white-50 fs-5"></i>
+            ) : (
+              <i className="bi bi-moon text-white-50 fs-5"></i>
+            )}
+          </button>
+          <button className="btn btn-glass rounded-circle p-2">
+            <i className="bi bi-share text-white-50 fs-5"></i>
+          </button>
+        </div>
       </div>
     </header>
   );

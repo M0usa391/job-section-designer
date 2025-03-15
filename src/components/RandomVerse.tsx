@@ -1,6 +1,5 @@
 
 import { useState, useEffect } from "react";
-import { BookText } from "lucide-react";
 
 interface Verse {
   arabic: string;
@@ -62,32 +61,32 @@ const RandomVerse = () => {
   };
 
   return (
-    <div className="w-full px-6 py-5 animate-scale-in">
+    <div className="container-fluid py-3 animate__animated animate__zoomIn">
       <div 
-        className={`w-full rounded-xl glass-card py-6 px-4 cursor-pointer relative ${
-          isFlipped ? "bg-gradient-to-br from-islamicPurple/20 to-transparent" : ""
+        className={`card btn-glass p-3 cursor-pointer position-relative ${
+          isFlipped ? "bg-gradient" : ""
         }`}
         onClick={handleFlip}
-        style={{ minHeight: "150px" }}
+        style={{ minHeight: "150px", cursor: "pointer" }}
       >
-        <div className="flex justify-between items-center mb-2">
+        <div className="d-flex justify-content-between align-items-center mb-2">
           <div></div>
-          <div className="flex items-center">
-            <BookText className="w-5 h-5 text-teal-300 mr-1" />
-            <span className="text-lg text-teal-300 font-medium">آية قرآنية</span>
+          <div className="d-flex align-items-center">
+            <i className="bi bi-book text-info fs-5 me-1"></i>
+            <span className="fs-5 text-info fw-medium">آية قرآنية</span>
           </div>
         </div>
         
         {!isFlipped ? (
-          <p className="text-right text-white font-medium leading-relaxed text-lg px-2">
+          <p className="text-end text-white fw-medium lh-lg fs-5 px-2">
             {currentVerse.arabic}
           </p>
         ) : (
-          <div className="text-right px-2 text-white/90">
-            <p className="font-medium leading-relaxed text-md mb-2">
+          <div className="text-end px-2 text-white-50">
+            <p className="fw-medium lh-lg fs-6 mb-2">
               {currentVerse.translation}
             </p>
-            <p className="text-sm text-teal-300">
+            <p className="small text-info">
               سورة {currentVerse.surah} - آية {currentVerse.ayah}
             </p>
           </div>

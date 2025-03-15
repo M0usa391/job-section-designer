@@ -1,5 +1,4 @@
 
-import { Clock, BookOpen, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
 
 interface CurrentActivityProps {
@@ -7,9 +6,9 @@ interface CurrentActivityProps {
 }
 
 const ACTIVITIES = [
-  { icon: <Clock className="text-amber-300 w-5 h-5" />, text: "الآن: أذكار النوم - قيام الليل - صلاة الوتر" },
-  { icon: <BookOpen className="text-amber-300 w-5 h-5" />, text: "الآن: قراءة سورة الكهف - أذكار يوم الجمعة" },
-  { icon: <Moon className="text-amber-300 w-5 h-5" />, text: "الآن: قيام الليل - تهجد - استغفار" }
+  { icon: <i className="bi bi-clock text-warning fs-5"></i>, text: "الآن: أذكار النوم - قيام الليل - صلاة الوتر" },
+  { icon: <i className="bi bi-book text-warning fs-5"></i>, text: "الآن: قراءة سورة الكهف - أذكار يوم الجمعة" },
+  { icon: <i className="bi bi-moon-stars text-warning fs-5"></i>, text: "الآن: قيام الليل - تهجد - استغفار" }
 ];
 
 const CurrentActivity = ({ activity }: CurrentActivityProps) => {
@@ -26,12 +25,14 @@ const CurrentActivity = ({ activity }: CurrentActivityProps) => {
   const currentActivity = ACTIVITIES[currentIndex];
 
   return (
-    <div className="w-full px-6 pt-4 animate-fade-up delay-200">
-      <div className="w-full rounded-xl glass-card py-3 px-4 flex items-center gap-3">
-        {currentActivity.icon}
-        <p className="text-right text-white text-sm font-medium">
-          {currentActivity.text}
-        </p>
+    <div className="container-fluid px-3 pt-3 animate__animated animate__fadeInUp animate__delay-2s">
+      <div className="card btn-glass py-2 px-3">
+        <div className="d-flex align-items-center gap-2">
+          {currentActivity.icon}
+          <p className="text-end text-white fs-6 fw-medium mb-0">
+            {currentActivity.text}
+          </p>
+        </div>
       </div>
     </div>
   );

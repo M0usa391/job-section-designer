@@ -1,121 +1,75 @@
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 
-@layer base {
-  :root {
-    --background: 225 60% 8%;
-    --foreground: 210 40% 98%;
-
-    --card: 225 50% 12%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 225 45% 10%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 100% 60%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 195 80% 60%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 225 40% 20%;
-    --muted-foreground: 215 20% 65%;
-
-    --accent: 225 40% 25%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 225 30% 20%;
-    --input: 225 30% 20%;
-    --ring: 225 60% 40%;
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .light-mode {
-    --background: 210 40% 98%;
-    --foreground: 225 60% 8%;
-
-    --card: 210 40% 98%;
-    --card-foreground: 225 50% 12%;
-
-    --popover: 210 40% 98%;
-    --popover-foreground: 225 45% 10%;
-
-    --primary: 210 100% 50%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 195 80% 50%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 210 40% 90%;
-    --muted-foreground: 225 40% 20%;
-
-    --accent: 210 40% 90%;
-    --accent-foreground: 225 40% 25%;
-
-    --border: 225 30% 90%;
-    --input: 225 30% 90%;
-    --ring: 210 100% 50%;
-  }
-
-  .dark-mode {
-    --background: 225 60% 8%;
-    --foreground: 210 40% 98%;
-  }
+:root {
+  --background-dark: #0E1E43;
+  --foreground-dark: #ffffff;
+  --background-light: #f0f8ff;
+  --foreground-light: #0E1E43;
+  --islamic-blue: #0E1E43;
+  --islamic-blue-50: #152F6E;
+  --islamic-blue-100: #0D1A3A;
+  --islamic-blue-900: #050D20;
+  --islamic-cyan: #4ECDE6;
+  --islamic-purple: #7F7FD5;
+  --islamic-gold: #FFC940;
+  --islamic-green: #00A86B;
+  --islamic-pink: #FF6B91;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-islamicBlue text-foreground antialiased overflow-x-hidden;
-  }
+/* Base Styles */
+body {
+  background-color: var(--islamic-blue);
+  color: var(--foreground-dark);
+  overflow-x: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-@layer utilities {
-  .star {
-    @apply absolute w-[1px] h-[1px] bg-white rounded-full;
-    box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.5);
-  }
-
-  .text-shadow {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-
-  .glass-card {
-    @apply backdrop-blur-sm bg-white/5 border border-white/10 shadow-md;
-  }
-
-  .shooting-star {
-    @apply absolute w-[2px] h-[2px] bg-white;
-    box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.5);
-  }
-
-  .prayer-time-border {
-    @apply border-b-2 border-islamicCyan/30 transition-all duration-300;
-  }
-
-  .prayer-time-border:hover {
-    @apply border-islamicCyan;
-  }
+/* Dark Mode Styles */
+.dark-mode {
+  --background: var(--background-dark);
+  --foreground: var(--foreground-dark);
 }
 
+/* Light Mode Styles */
+.light-mode {
+  --background: var(--background-light);
+  --foreground: var(--foreground-light);
+}
+
+.light-mode body {
+  background: linear-gradient(to bottom, #87CEEB, #E0F7FA);
+}
+
+.light-mode .btn-glass {
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.light-mode .text-white {
+  color: var(--islamic-blue) !important;
+}
+
+.light-mode .text-warning {
+  color: var(--islamic-blue-50) !important;
+}
+
+/* Glass Effect */
+.btn-glass, .card-glass {
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Text Effects */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Star and Sky Effects */
 .stars-container {
   position: absolute;
   width: 100%;
@@ -126,6 +80,24 @@
   overflow: hidden;
 }
 
+.star {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.5);
+}
+
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Progress Bar */
 .progress-bar {
   position: relative;
   height: 4px;
@@ -139,30 +111,11 @@
   height: 100%;
   left: 0;
   top: 0;
-  background: rgb(127, 127, 213);
   background: linear-gradient(90deg, rgba(127, 127, 213, 1) 0%, rgba(78, 205, 230, 1) 100%);
   transition: width 0.5s ease-in-out;
 }
 
-/* Day mode styles */
-.bg-day-sky {
-  background: linear-gradient(to bottom, #87CEEB, #E0F7FA);
-}
-
-.light-mode .glass-card {
-  @apply backdrop-blur-sm bg-white/40 border border-white/30 shadow-md;
-}
-
-.light-mode .text-white {
-  @apply text-islamicBlue;
-}
-
-/* نهارية */
-.light-mode .text-islamicCyan {
-  @apply text-islamicBlue-50;
-}
-
-/* تنسيق الرسوم المتحركة للنجوم المتساقطة */
+/* Animations */
 @keyframes shooting-star {
   0% {
     transform: translateX(0) translateY(0) rotate(-45deg);
@@ -177,11 +130,6 @@
   }
 }
 
-.animate-shooting-star {
-  animation: shooting-star 5s ease-out infinite;
-}
-
-/* تنسيق وميض النجوم */
 @keyframes pulse-light {
   0%, 100% {
     opacity: 0.8;
@@ -191,62 +139,58 @@
   }
 }
 
-.animate-pulse-light {
-  animation: pulse-light 3s ease-in-out infinite;
+.animate__animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
 }
 
-/* تنسيقات ظهور العناصر بتأثيرات مختلفة */
-@keyframes fade-in {
-  0% {
+.animate__fadeIn {
+  animation-name: fadeIn;
+}
+
+.animate__fadeInUp {
+  animation-name: fadeInUp;
+}
+
+.animate__delay-1s {
+  animation-delay: 1s;
+}
+
+.animate__delay-2s {
+  animation-delay: 2s;
+}
+
+@keyframes fadeIn {
+  from {
     opacity: 0;
   }
-  100% {
+  to {
     opacity: 1;
   }
 }
 
-@keyframes fade-up {
-  0% {
+@keyframes fadeInUp {
+  from {
     opacity: 0;
     transform: translateY(10px);
   }
-  100% {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@keyframes scale-in {
-  0% {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+/* Utilities */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.animate-fade-in {
-  animation: fade-in 0.4s ease-out;
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
-.animate-fade-up {
-  animation: fade-up 0.5s ease-out;
-}
-
-.animate-scale-in {
-  animation: scale-in 0.3s ease-out;
-}
-
-.delay-100 {
-  animation-delay: 0.1s;
-}
-
-.delay-200 {
-  animation-delay: 0.2s;
-}
-
-.delay-300 {
-  animation-delay: 0.3s;
+/* RTL Support */
+.text-end {
+  text-align: right;
 }

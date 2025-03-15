@@ -1,5 +1,4 @@
 
-import { Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
 // قائمة المناسبات الإسلامية لعام 2024
@@ -28,38 +27,38 @@ const IslamicEvents = () => {
   const currentEvent = ISLAMIC_EVENTS[currentIndex];
 
   return (
-    <div className="w-full px-6 py-3 animate-fade-up">
-      <div className="w-full rounded-xl glass-card py-4 px-4">
-        <div className="flex justify-between items-center mb-3">
+    <div className="container-fluid py-3 animate__animated animate__fadeInUp">
+      <div className="card btn-glass p-3">
+        <div className="d-flex justify-content-between align-items-center mb-3">
           <button 
-            className="w-8 h-8 rounded-full flex items-center justify-center glass-card"
+            className="btn btn-glass rounded-circle p-1"
             onClick={prevEvent}
           >
-            <ChevronRight className="w-5 h-5 text-white/80" />
+            <i className="bi bi-chevron-right text-white-50 fs-5"></i>
           </button>
           
-          <div className="flex items-center">
-            <Calendar className="w-5 h-5 text-violet-300 mr-1" />
-            <span className="text-lg text-violet-300 font-medium">المناسبات الإسلامية</span>
+          <div className="d-flex align-items-center">
+            <i className="bi bi-calendar-event text-purple-300 fs-5 me-1"></i>
+            <span className="fs-5 text-purple-300 fw-medium">المناسبات الإسلامية</span>
           </div>
           
           <button 
-            className="w-8 h-8 rounded-full flex items-center justify-center glass-card"
+            className="btn btn-glass rounded-circle p-1"
             onClick={nextEvent}
           >
-            <ChevronLeft className="w-5 h-5 text-white/80" />
+            <i className="bi bi-chevron-left text-white-50 fs-5"></i>
           </button>
         </div>
         
         <div className="text-center">
-          <h3 className="text-lg font-bold text-white mb-1">{currentEvent.name}</h3>
-          <p className="text-sm text-white/80 mb-2">{currentEvent.description}</p>
-          <div className="flex justify-center items-center gap-3 mt-3">
-            <div className="bg-violet-500/20 px-3 py-1 rounded-full">
-              <p className="text-sm text-violet-300">{currentEvent.date}</p>
+          <h3 className="fs-5 fw-bold text-white mb-1">{currentEvent.name}</h3>
+          <p className="small text-white-50 mb-2">{currentEvent.description}</p>
+          <div className="d-flex justify-content-center align-items-center gap-3 mt-3">
+            <div className="badge bg-purple-500 bg-opacity-25 px-3 py-2">
+              <p className="small text-purple-300 mb-0">{currentEvent.date}</p>
             </div>
-            <div className="bg-violet-500/10 px-3 py-1 rounded-full">
-              <p className="text-sm text-violet-300">{currentEvent.gregorian}</p>
+            <div className="badge bg-purple-500 bg-opacity-10 px-3 py-2">
+              <p className="small text-purple-300 mb-0">{currentEvent.gregorian}</p>
             </div>
           </div>
         </div>
