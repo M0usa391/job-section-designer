@@ -1,5 +1,6 @@
+
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
@@ -10,7 +11,13 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   plugins: [
-    react(),
+    react({
+      // Disable SWC to avoid native binding issues on Termux
+      babel: {
+        plugins: [],
+      },
+      jsxRuntime: "automatic",
+    }),
     mode === 'development' &&
     componentTagger(),
   ].filter(Boolean),
